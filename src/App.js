@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import { View, StyleSheet } from 'react-native';
-import { Button, Header, Spinner } from './components/common';
+import { Button, Header, Spinner, Card, CardSection } from './components/common';
 import LoginForm from './components/LoginForm';
 
 type Props = {};
@@ -34,9 +34,13 @@ export default class App extends Component<Props> {
     switch (this.state.loggedIn) {
       case true:
         return (
-          <Button onPress={this.onUserLogout} style={styles.logoutButtonStyle}>
-            Log out
-          </Button>
+          <Card>
+            <CardSection>
+              <Button onPress={this.onUserLogout} style={styles.logoutButtonStyle}>
+                Log out
+              </Button>
+            </CardSection>
+          </Card>
         );
       case false:
         return <LoginForm />;
